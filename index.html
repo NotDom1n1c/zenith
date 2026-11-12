@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Zenith — every satellite, live</title>
+<meta name="description" content="Every active satellite and the big debris clouds, at their real positions, computed live in your browser. What is above you right now, and when you can see the ISS.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Michroma&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css?v=8">
+</head>
+<body>
+<canvas id="gl"></canvas>
+<div class="tags" id="tags"></div>
+
+<header class="mark">
+  <h1>ZENITH</h1>
+  <p>every satellite in orbit · live</p>
+  <p class="src" id="src">acquiring orbits…</p>
+</header>
+
+<section class="above" id="above">
+  <div class="big"><b id="aboveN">—</b><span>above you<br>right now</span></div>
+  <button class="loc" id="loc" title="use my location"><i></i><span id="locName">Brugg AG</span></button>
+</section>
+
+<div class="search">
+  <input id="q" placeholder="find a satellite…" spellcheck="false" autocomplete="off">
+  <ol id="qr" hidden></ol>
+</div>
+
+<aside class="card" id="card" hidden>
+  <button class="x" id="cardX" aria-label="close">×</button>
+  <p class="grp" id="cGrp"></p>
+  <h2 id="cName"></h2>
+  <dl id="cFacts"></dl>
+  <div class="passes"><h3>passes over you · 48 h</h3><ol id="cPass"></ol></div>
+  <div class="row"><button id="cFollow" class="tg" aria-pressed="false">follow</button><a id="cLink" target="_blank" rel="noopener">CelesTrak ↗</a></div>
+</aside>
+
+<button class="iss" id="iss" hidden></button>
+
+<nav class="time">
+  <button data-w="-1" title="slower / reverse (←)">◀</button>
+  <div class="clock"><b id="warp">1×</b><span id="simT"></span></div>
+  <button data-w="1" title="faster (→)">▶</button>
+  <button class="now" id="now" title="back to now (N)">NOW</button>
+</nav>
+
+<div class="groups" id="groups"></div>
+<p class="hint">drag · orbit &nbsp; wheel · zoom &nbsp; click a dot</p>
+
+<div class="boot" id="boot"><span id="bootT">acquiring orbits</span></div>
+
+<script src="vendor/satellite.min.js"></script>
+<script src="app.js?v=8"></script>
+</body>
+</html>
